@@ -1,9 +1,10 @@
 import 'package:akhbark/screens/akhbark_home_screen.dart';
 import 'package:akhbark/services/akhbarak_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  AkhbarakService().getAkhbarak();
+  AkhbarakService(Dio()).getAkhbarak();
   runApp(const MyApp());
 }
 
