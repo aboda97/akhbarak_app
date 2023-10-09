@@ -14,24 +14,34 @@ class ListViewContainerItemBody extends StatefulWidget {
 
 class _ListViewContainerItemBodyState extends State<ListViewContainerItemBody> {
   List<ItemBodyModel> articles = [];
+  bool dataLoaded = false;
   @override
-  void initState()  {
+  void initState() {
     super.initState();
-     getGeneralAkhbarak();
+    getGeneralAkhbark();
   }
 
-  Future<void> getGeneralAkhbarak() async {
+  Future<void> getGeneralAkhbark() async {
     articles = await AkhbarakService(Dio()).getAkhbarak();
+    dataLoaded = true;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-        delegate: SliverChildBuilderDelegate(
-      childCount: articles.length,
-      (context, index) => ContainerItemBody(
-        articles: articles[index],
-      ),
-    ));
+    return dataLoaded
+        ? SliverList(
+            delegate: SliverChildBuilderDelegate(
+              childCount: articles.length,
+              (context, index) => ContainerItemBody(
+                articles: articles[index],
+              ),
+            ),
+          )
+        : const SliverToBoxAdapter(
+          child: Center(
+              child: CircularProgressIndicator(),
+            ),
+        );
   }
 }
