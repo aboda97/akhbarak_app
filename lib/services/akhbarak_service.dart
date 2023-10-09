@@ -26,6 +26,6 @@ class AkhbarakService {
     }
 
     return articleList;
-    print(articleList);
+    //print(articleList);
   }
 }
