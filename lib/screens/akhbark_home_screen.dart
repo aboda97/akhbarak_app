@@ -1,5 +1,5 @@
-import 'package:akhbark/components/custom_container_body/listView_container_item_body.dart';
 import 'package:akhbark/components/custom_container_header/listView_container_item_header.dart';
+import 'package:akhbark/components/future_builder_item_body.dart';
 import 'package:flutter/material.dart';
 
 class AkhbarkHomeScreen extends StatelessWidget {
@@ -32,7 +32,7 @@ class AkhbarkHomeScreen extends StatelessWidget {
               height: 16.0,
             ),
           ),
-          ListViewContainerItemBody(),
+          FutureBuilderItemBuilder(),
         ],
       ),
       //  const Column(children: [
