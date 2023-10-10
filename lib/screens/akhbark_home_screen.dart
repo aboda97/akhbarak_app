@@ -32,7 +32,7 @@ class AkhbarkHomeScreen extends StatelessWidget {
               height: 16.0,
             ),
           ),
-          FutureBuilderItemBuilder(),
+          FutureBuilderItemBuilder(category: 'business',),
         ],
       ),
       //  const Column(children: [

@@ -8,10 +8,13 @@ class AkhbarakService {
   // momken a3melaha zy el oula bardo w mast5dmsh el construtor
   //final Dio dio = Dio();
 
-  Future<List<ItemBodyModel>> getAkhbarak() async {
+  Future<List<ItemBodyModel>> getTopLinesInAkhbarak({required String category}) async {
+    String baseUrl = 'https://newsapi.org';
+    String apiKey = '88e86952e1c746cea291f7f9e12aa4e6';
+    String url = '/v2/top-headlines';
     try {
       Response response = await dio.get(
-          'https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=88e86952e1c746cea291f7f9e12aa4e6');
+          '$baseUrl$url?country=us&apiKey=$apiKey&category=$category');
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> articles = jsonData['articles'];
       List<ItemBodyModel> articleList = [];

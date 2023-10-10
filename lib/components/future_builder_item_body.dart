@@ -5,7 +5,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class FutureBuilderItemBuilder extends StatefulWidget {
-  const FutureBuilderItemBuilder({super.key});
+  const FutureBuilderItemBuilder({super.key, required this.category});
+
+  final String category;
 
   @override
   State<FutureBuilderItemBuilder> createState() =>
@@ -16,7 +18,8 @@ class _FutureBuilderItemBuilderState extends State<FutureBuilderItemBuilder> {
   var futureData;
   @override
   void initState() {
-    futureData = AkhbarakService(Dio()).getAkhbarak();
+    futureData =
+        AkhbarakService(Dio()).getTopLinesInAkhbarak(category:widget.category);
     super.initState();
   }
 
